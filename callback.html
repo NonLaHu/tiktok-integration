@@ -7,27 +7,51 @@
   <meta name="tiktok-developers-site-verification" content="j1M1TjLLbs2hb7cYrBPYspBd2KBZ18QZ">
   <title>Authorization complete — TikTok Integration</title>
   <style>
-    :root { color-scheme: light dark; --fg: #1c1f23; --muted: #5c6570; --bg: #ffffff; --line: #e6e8eb; --accent: #fe2c55; }
-    @media (prefers-color-scheme: dark) { :root { --fg: #f1f3f5; --muted: #a7b0ba; --bg: #111315; --line: #2a2e33; } }
-    * { box-sizing: border-box; }
-    body { margin: 0; background: var(--bg); color: var(--fg); font: 16px/1.65 system-ui, -apple-system, "Segoe UI", sans-serif; }
-    main { max-width: 760px; margin: 0 auto; padding: 64px 24px 96px; }
-    h1 { font-size: clamp(28px, 5vw, 40px); line-height: 1.15; margin: 0 0 12px; letter-spacing: -0.02em; }
-    h2 { font-size: 18px; margin: 32px 0 8px; }
-    .lead { color: var(--muted); margin: 0 0 28px; }
-    .box { border: 1px solid var(--line); border-radius: 12px; padding: 16px 18px; background: color-mix(in srgb, var(--fg) 4%, var(--bg)); }
-    code, .val { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 14px; word-break: break-all; }
-    .val { display: block; margin-top: 8px; user-select: all; }
-    button { margin-top: 14px; border: 0; border-radius: 999px; padding: 10px 20px; background: var(--accent); color: #fff; font-weight: 650; font-size: 15px; cursor: pointer; }
-    button:active { transform: translateY(1px); }
-    .status { font-weight: 650; margin: 0 0 6px; }
-    .ok { color: #12a150; }
-    .bad { color: var(--accent); }
-    ul { padding-left: 22px; } li { margin: 6px 0; }
-    a { color: var(--accent); }
-    .fine { color: var(--muted); font-size: 13px; margin-top: 44px; padding-top: 20px; border-top: 1px solid var(--line); }
-    [hidden] { display: none !important; }
-  </style>
+:root {
+  color-scheme: light dark;
+  --fg: #181b20; --muted: #5b6472; --bg: #ffffff; --panel: #f6f7f9;
+  --line: #e4e7ec; --accent: #fe2c55; --ok: #128a4a;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --fg: #f2f4f7; --muted: #a7b0bb; --bg: #0f1115; --panel: #171a20;
+          --line: #2a2f38; --accent: #ff4d71; --ok: #35c97a; }
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--fg);
+       font: 16px/1.65 system-ui, -apple-system, "Segoe UI", sans-serif; }
+main { max-width: 760px; margin: 0 auto; padding: 56px 22px 80px; }
+.eyebrow { color: var(--accent); font-weight: 700; letter-spacing: .08em;
+           text-transform: uppercase; font-size: 12px; margin: 0 0 10px; }
+h1 { font-size: clamp(30px, 5vw, 46px); line-height: 1.12; margin: 0 0 14px;
+     letter-spacing: -0.02em; }
+h2 { font-size: 19px; margin: 34px 0 8px; }
+p { margin: 0 0 12px; }
+.lead { font-size: 18px; color: var(--muted); margin: 0 0 24px; }
+ul, ol { padding-left: 22px; }
+li { margin: 6px 0; }
+a { color: var(--accent); }
+nav { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 32px; }
+nav a { border: 1px solid var(--line); border-radius: 999px; padding: 9px 16px;
+        color: var(--fg); text-decoration: none; font-weight: 600; font-size: 14px; }
+nav a:hover { border-color: var(--accent); color: var(--accent); }
+.box { border: 1px solid var(--line); border-radius: 12px; padding: 16px 18px;
+       background: var(--panel); margin: 18px 0; }
+code, .val { font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+             font-size: 14px; word-break: break-all; }
+.val { display: block; margin-top: 8px; user-select: all; }
+button { margin-top: 12px; border: 0; border-radius: 999px; padding: 9px 18px;
+         background: var(--accent); color: #fff; font-weight: 650; font-size: 14px;
+         cursor: pointer; }
+button:active { transform: translateY(1px); }
+.status { font-weight: 650; margin: 0 0 4px; }
+.ok { color: var(--ok); }
+.bad { color: var(--accent); }
+.checklist { list-style: none; padding-left: 0; }
+.checklist li::before { content: "☐"; margin-right: 10px; color: var(--muted); }
+.fine { color: var(--muted); font-size: 13px; margin-top: 42px; padding-top: 18px;
+        border-top: 1px solid var(--line); }
+[hidden] { display: none !important; }
+</style>
 </head>
 <body>
 <main>
@@ -53,15 +77,14 @@
   <h2>What to do next</h2>
   <ol>
     <li>Copy the code above.</li>
-    <li>Hand it to the local tool that started the login, before it expires (about 10 minutes).</li>
-    <li>The code works only once and only with this app's client secret.</li>
+    <li>Paste it into the terminal where the setup tool is waiting.</li>
+    <li>Do it soon: the code expires in about 10 minutes.</li>
   </ol>
 
   <h2>Full address</h2>
   <div class="box"><code class="val" id="urlVal"></code></div>
 
-  <p class="fine">Not affiliated with TikTok. This page does not store, transmit, or log the code; everything is handled in your browser.</p>
-</main>
+  <p class="fine">Not affiliated with TikTok. This page does not store, send, or log the code. Everything stays in your browser.</p>
 <script>
   (function () {
     var q = new URLSearchParams(location.search);
@@ -79,22 +102,26 @@
       btn.addEventListener("click", function () {
         var done = function () { btn.textContent = "Copied"; };
         if (navigator.clipboard && navigator.clipboard.writeText) {
-          navigator.clipboard.writeText(code).then(done, function () { btn.textContent = "Select and copy manually"; });
+          navigator.clipboard.writeText(code).then(done, function () {
+            btn.textContent = "Select and copy manually";
+          });
         } else {
           btn.textContent = "Select and copy manually";
         }
       });
     } else if (err) {
-      document.getElementById("title").textContent = "Authorization failed";
-      document.getElementById("lead").textContent = "TikTok returned an error instead of a code.";
-      document.getElementById("errText").textContent = err + (desc ? ": " + desc : "");
+      document.getElementById("title").textContent = "Authorization was not granted";
+      document.getElementById("lead").textContent = "TikTok sent an error instead of a code.";
+      document.getElementById("errText").textContent = desc || err;
       document.getElementById("errBox").hidden = false;
     } else {
-      document.getElementById("title").textContent = "Nothing here";
-      document.getElementById("lead").textContent = "This page is the OAuth redirect target for a personal TikTok integration.";
+      document.getElementById("title").textContent = "Waiting for TikTok";
+      document.getElementById("lead").textContent = "This page is the login callback. Open it from the TikTok consent screen, not directly.";
       document.getElementById("noneBox").hidden = false;
     }
   })();
 </script>
+
+</main>
 </body>
 </html>
