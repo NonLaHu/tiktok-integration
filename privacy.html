@@ -7,60 +7,94 @@
   <meta name="tiktok-developers-site-verification" content="j1M1TjLLbs2hb7cYrBPYspBd2KBZ18QZ">
   <title>Privacy Policy — TikTok Integration</title>
   <style>
-    :root { color-scheme: light dark; --fg: #1c1f23; --muted: #5c6570; --bg: #ffffff; --line: #e6e8eb; --accent: #fe2c55; }
-    @media (prefers-color-scheme: dark) { :root { --fg: #f1f3f5; --muted: #a7b0ba; --bg: #111315; --line: #2a2e33; } }
-    * { box-sizing: border-box; }
-    body { margin: 0; background: var(--bg); color: var(--fg); font: 16px/1.7 system-ui, -apple-system, "Segoe UI", sans-serif; }
-    main { max-width: 760px; margin: 0 auto; padding: 64px 24px 96px; }
-    h1 { font-size: clamp(30px, 5vw, 44px); line-height: 1.15; margin: 0 0 8px; letter-spacing: -0.02em; }
-    h2 { font-size: 18px; margin: 32px 0 8px; }
-    .date { color: var(--muted); margin: 0 0 36px; }
-    .back { display: inline-block; margin-bottom: 28px; color: var(--accent); text-decoration: none; font-weight: 600; }
-    a { color: var(--accent); }
-    .fine { color: var(--muted); font-size: 13px; margin-top: 48px; padding-top: 20px; border-top: 1px solid var(--line); }
-  </style>
+:root {
+  color-scheme: light dark;
+  --fg: #181b20; --muted: #5b6472; --bg: #ffffff; --panel: #f6f7f9;
+  --line: #e4e7ec; --accent: #fe2c55; --ok: #128a4a;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --fg: #f2f4f7; --muted: #a7b0bb; --bg: #0f1115; --panel: #171a20;
+          --line: #2a2f38; --accent: #ff4d71; --ok: #35c97a; }
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--fg);
+       font: 16px/1.65 system-ui, -apple-system, "Segoe UI", sans-serif; }
+main { max-width: 760px; margin: 0 auto; padding: 56px 22px 80px; }
+.eyebrow { color: var(--accent); font-weight: 700; letter-spacing: .08em;
+           text-transform: uppercase; font-size: 12px; margin: 0 0 10px; }
+h1 { font-size: clamp(30px, 5vw, 46px); line-height: 1.12; margin: 0 0 14px;
+     letter-spacing: -0.02em; }
+h2 { font-size: 19px; margin: 34px 0 8px; }
+p { margin: 0 0 12px; }
+.lead { font-size: 18px; color: var(--muted); margin: 0 0 24px; }
+ul, ol { padding-left: 22px; }
+li { margin: 6px 0; }
+a { color: var(--accent); }
+nav { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 32px; }
+nav a { border: 1px solid var(--line); border-radius: 999px; padding: 9px 16px;
+        color: var(--fg); text-decoration: none; font-weight: 600; font-size: 14px; }
+nav a:hover { border-color: var(--accent); color: var(--accent); }
+.box { border: 1px solid var(--line); border-radius: 12px; padding: 16px 18px;
+       background: var(--panel); margin: 18px 0; }
+code, .val { font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+             font-size: 14px; word-break: break-all; }
+.val { display: block; margin-top: 8px; user-select: all; }
+button { margin-top: 12px; border: 0; border-radius: 999px; padding: 9px 18px;
+         background: var(--accent); color: #fff; font-weight: 650; font-size: 14px;
+         cursor: pointer; }
+button:active { transform: translateY(1px); }
+.status { font-weight: 650; margin: 0 0 4px; }
+.ok { color: var(--ok); }
+.bad { color: var(--accent); }
+.checklist { list-style: none; padding-left: 0; }
+.checklist li::before { content: "☐"; margin-right: 10px; color: var(--muted); }
+.fine { color: var(--muted); font-size: 13px; margin-top: 42px; padding-top: 18px;
+        border-top: 1px solid var(--line); }
+[hidden] { display: none !important; }
+</style>
 </head>
 <body>
 <main>
-  <a class="back" href="index.html">← Back</a>
+  <p class="eyebrow">Legal</p>
   <h1>Privacy Policy</h1>
-  <p class="date">Effective date: November 17, 2026</p>
+  <p class="lead">Effective date: November 17, 2026</p>
 
-  <h2>1. Summary</h2>
-  <p>This integration is a personal tool used only by the account owner. It does not collect data from third parties, does not use analytics or advertising, and does not run a public server that stores user data.</p>
+  <h2>1. Short version</h2>
+  <p>TikTok Integration is a personal tool used only by its owner. It does not collect data from other people. It has no analytics, no ads, and no public database.</p>
 
-  <h2>2. Data accessed</h2>
-  <p>With the owner's authorization through TikTok Login Kit, the integration may access:</p>
+  <h2>2. What it can access</h2>
+  <p>After the owner approves access through TikTok Login Kit, the tool can access:</p>
   <ul>
-    <li>OAuth access and refresh tokens issued by TikTok for the owner's account.</li>
-    <li>The owner's basic profile information (such as display name, avatar, and open ID).</li>
-    <li>The list of videos on the owner's own TikTok account.</li>
-    <li>Video files that the owner chooses to upload to the owner's own account.</li>
+    <li>The owner's OAuth access token and refresh token.</li>
+    <li>The owner's basic profile, such as display name, avatar, and open ID.</li>
+    <li>The owner's own list of videos.</li>
+    <li>Video files the owner chooses to upload to the owner's own account.</li>
   </ul>
-  <p>No data belonging to other TikTok users is accessed, collected, or processed.</p>
+  <p>It does not access data belonging to other TikTok users.</p>
 
-  <h2>3. How data is stored</h2>
-  <p>OAuth tokens are stored locally on the owner's own machine in a local configuration file with restricted permissions. Profile data and video metadata are processed locally and are not uploaded to any server controlled by the operator. Video files are sent only to TikTok's official API endpoints when the owner initiates an upload.</p>
+  <h2>3. Where data is stored</h2>
+  <p>Tokens are stored on the owner's own computer in a file that only the owner can read. Profile data and video details are processed on that computer. Video files are sent only to TikTok's official API when the owner starts an upload.</p>
 
   <h2>4. Sharing</h2>
-  <p>Data is not sold, rented, or shared with third parties. The integration does not use third-party analytics, tracking pixels, or advertising SDKs. The only external service it communicates with is TikTok's official API.</p>
+  <p>Data is not sold, rented, or shared with anyone. The only outside service the tool talks to is TikTok's official API.</p>
 
-  <h2>5. Retention</h2>
-  <p>OAuth tokens are retained locally until they are revoked or deleted by the owner. Video files and metadata are not retained beyond the operation requested by the owner. Local logs do not contain typed text or credentials.</p>
+  <h2>5. How long data is kept</h2>
+  <p>Tokens stay on the owner's computer until the owner deletes them or revokes access. Video files and details are not kept after the requested upload. Local logs do not contain passwords or tokens.</p>
 
-  <h2>6. Security and revocation</h2>
-  <p>Tokens are stored with restricted file permissions. The owner can revoke the integration's access at any time from TikTok's account settings, and can delete local token files from the owner's machine.</p>
+  <h2>6. Security and revoking access</h2>
+  <p>The owner can revoke access at any time in TikTok's settings under Security and permissions. The owner can also delete the local token file.</p>
 
   <h2>7. Children</h2>
-  <p>This integration is not directed to children and is not intended for use by anyone other than the account owner.</p>
+  <p>This tool is not for children and is not intended for anyone other than the account owner.</p>
 
   <h2>8. Changes</h2>
-  <p>This policy may be updated from time to time. The effective date above will be revised when changes are made.</p>
+  <p>This policy may change. The effective date above will be updated when it does.</p>
 
   <h2>9. Contact</h2>
-  <p>Privacy questions can be raised through the repository's issue tracker: <a href="https://github.com/NonLaHu/tiktok-integration/issues">github.com/NonLaHu/tiktok-integration/issues</a>.</p>
+  <p>Questions can be raised at <a href="https://github.com/NonLaHu/tiktok-integration/issues">github.com/NonLaHu/tiktok-integration/issues</a>.</p>
 
   <p class="fine">Not affiliated with TikTok. TikTok is a trademark of its respective owner.</p>
+
 </main>
 </body>
 </html>
