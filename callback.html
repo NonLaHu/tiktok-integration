@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Authorization complete — TikTok Integration</title>
+  <style>
+    :root { color-scheme: light dark; --fg: #1c1f23; --muted: #5c6570; --bg: #ffffff; --line: #e6e8eb; --accent: #fe2c55; }
+    @media (prefers-color-scheme: dark) { :root { --fg: #f1f3f5; --muted: #a7b0ba; --bg: #111315; --line: #2a2e33; } }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--fg); font: 16px/1.65 system-ui, -apple-system, "Segoe UI", sans-serif; }
+    main { max-width: 760px; margin: 0 auto; padding: 64px 24px 96px; }
+    h1 { font-size: clamp(28px, 5vw, 40px); line-height: 1.15; margin: 0 0 12px; letter-spacing: -0.02em; }
+    h2 { font-size: 18px; margin: 32px 0 8px; }
+    .lead { color: var(--muted); margin: 0 0 28px; }
+    .box { border: 1px solid var(--line); border-radius: 12px; padding: 16px 18px; background: color-mix(in srgb, var(--fg) 4%, var(--bg)); }
+    code, .val { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 14px; word-break: break-all; }
+    .val { display: block; margin-top: 8px; user-select: all; }
+    button { margin-top: 14px; border: 0; border-radius: 999px; padding: 10px 20px; background: var(--accent); color: #fff; font-weight: 650; font-size: 15px; cursor: pointer; }
+    button:active { transform: translateY(1px); }
+    .status { font-weight: 650; margin: 0 0 6px; }
+    .ok { color: #12a150; }
+    .bad { color: var(--accent); }
+    ul { padding-left: 22px; } li { margin: 6px 0; }
+    a { color: var(--accent); }
+    .fine { color: var(--muted); font-size: 13px; margin-top: 44px; padding-top: 20px; border-top: 1px solid var(--line); }
+    [hidden] { display: none !important; }
+  </style>
+</head>
+<body>
+<main>
+  <h1 id="title">Authorization complete</h1>
+  <p class="lead" id="lead">TikTok sent an authorization code back to this page.</p>
+
+  <div class="box" id="okBox" hidden>
+    <p class="status ok">Authorization code</p>
+    <code class="val" id="codeVal"></code>
+    <button id="copyBtn" type="button">Copy code</button>
+  </div>
+
+  <div class="box" id="errBox" hidden>
+    <p class="status bad">Authorization was not granted</p>
+    <p><span id="errText"></span></p>
+  </div>
+
+  <div class="box" id="noneBox" hidden>
+    <p class="status">No authorization code in this address</p>
+    <p>Open this page from the TikTok consent screen, not directly.</p>
+  </div>
+
+  <h2>What to do next</h2>
+  <ol>
+    <li>Copy the code above.</li>
+    <li>Hand it to the local tool that started the login, before it expires (about 10 minutes).</li>
+    <li>The code works only once and only with this app's client secret.</li>
+  </ol>
+
+  <h2>Full address</h2>
+  <div class="box"><code class="val" id="urlVal"></code></div>
+
+  <p class="fine">Not affiliated with TikTok. This page does not store, transmit, or log the code; everything is handled in your browser.</p>
+</main>
+<script>
+  (function () {
+    var q = new URLSearchParams(location.search);
+    var code = q.get("code");
+    var err = q.get("error");
+    var desc = q.get("error_description");
+    var full = location.href;
+
+    document.getElementById("urlVal").textContent = full;
+
+    if (code) {
+      document.getElementById("codeVal").textContent = code;
+      document.getElementById("okBox").hidden = false;
+      var btn = document.getElementById("copyBtn");
+      btn.addEventListener("click", function () {
+        var done = function () { btn.textContent = "Copied"; };
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(code).then(done, function () { btn.textContent = "Select and copy manually"; });
+        } else {
+          btn.textContent = "Select and copy manually";
+        }
+      });
+    } else if (err) {
+      document.getElementById("title").textContent = "Authorization failed";
+      document.getElementById("lead").textContent = "TikTok returned an error instead of a code.";
+      document.getElementById("errText").textContent = err + (desc ? ": " + desc : "");
+      document.getElementById("errBox").hidden = false;
+    } else {
+      document.getElementById("title").textContent = "Nothing here";
+      document.getElementById("lead").textContent = "This page is the OAuth redirect target for a personal TikTok integration.";
+      document.getElementById("noneBox").hidden = false;
+    }
+  })();
+</script>
+</body>
+</html>

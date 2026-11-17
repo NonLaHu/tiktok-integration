@@ -13,6 +13,7 @@ This is not a public service and is not offered to third parties. No other users
 - Website: https://nonlahu.github.io/tiktok-integration/
 - Terms of Service: https://nonlahu.github.io/tiktok-integration/terms.html
 - Privacy Policy: https://nonlahu.github.io/tiktok-integration/privacy.html
+- OAuth redirect: https://nonlahu.github.io/tiktok-integration/callback.html
 
 ## Notes
 
