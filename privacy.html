@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Privacy Policy — TikTok Integration</title>
+  <style>
+    :root { color-scheme: light dark; --fg: #1c1f23; --muted: #5c6570; --bg: #ffffff; --line: #e6e8eb; --accent: #fe2c55; }
+    @media (prefers-color-scheme: dark) { :root { --fg: #f1f3f5; --muted: #a7b0ba; --bg: #111315; --line: #2a2e33; } }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--fg); font: 16px/1.7 system-ui, -apple-system, "Segoe UI", sans-serif; }
+    main { max-width: 760px; margin: 0 auto; padding: 64px 24px 96px; }
+    h1 { font-size: clamp(30px, 5vw, 44px); line-height: 1.15; margin: 0 0 8px; letter-spacing: -0.02em; }
+    h2 { font-size: 18px; margin: 32px 0 8px; }
+    .date { color: var(--muted); margin: 0 0 36px; }
+    .back { display: inline-block; margin-bottom: 28px; color: var(--accent); text-decoration: none; font-weight: 600; }
+    a { color: var(--accent); }
+    .fine { color: var(--muted); font-size: 13px; margin-top: 48px; padding-top: 20px; border-top: 1px solid var(--line); }
+  </style>
+</head>
+<body>
+<main>
+  <a class="back" href="index.html">← Back</a>
+  <h1>Privacy Policy</h1>
+  <p class="date">Effective date: November 17, 2026</p>
+
+  <h2>1. Summary</h2>
+  <p>This integration is a personal tool used only by the account owner. It does not collect data from third parties, does not use analytics or advertising, and does not run a public server that stores user data.</p>
+
+  <h2>2. Data accessed</h2>
+  <p>With the owner's authorization through TikTok Login Kit, the integration may access:</p>
+  <ul>
+    <li>OAuth access and refresh tokens issued by TikTok for the owner's account.</li>
+    <li>The owner's basic profile information (such as display name, avatar, and open ID).</li>
+    <li>The list of videos on the owner's own TikTok account.</li>
+    <li>Video files that the owner chooses to upload to the owner's own account.</li>
+  </ul>
+  <p>No data belonging to other TikTok users is accessed, collected, or processed.</p>
+
+  <h2>3. How data is stored</h2>
+  <p>OAuth tokens are stored locally on the owner's own machine in a local configuration file with restricted permissions. Profile data and video metadata are processed locally and are not uploaded to any server controlled by the operator. Video files are sent only to TikTok's official API endpoints when the owner initiates an upload.</p>
+
+  <h2>4. Sharing</h2>
+  <p>Data is not sold, rented, or shared with third parties. The integration does not use third-party analytics, tracking pixels, or advertising SDKs. The only external service it communicates with is TikTok's official API.</p>
+
+  <h2>5. Retention</h2>
+  <p>OAuth tokens are retained locally until they are revoked or deleted by the owner. Video files and metadata are not retained beyond the operation requested by the owner. Local logs do not contain typed text or credentials.</p>
+
+  <h2>6. Security and revocation</h2>
+  <p>Tokens are stored with restricted file permissions. The owner can revoke the integration's access at any time from TikTok's account settings, and can delete local token files from the owner's machine.</p>
+
+  <h2>7. Children</h2>
+  <p>This integration is not directed to children and is not intended for use by anyone other than the account owner.</p>
+
+  <h2>8. Changes</h2>
+  <p>This policy may be updated from time to time. The effective date above will be revised when changes are made.</p>
+
+  <h2>9. Contact</h2>
+  <p>Privacy questions can be raised through the repository's issue tracker: <a href="https://github.com/NonLaHu/tiktok-integration/issues">github.com/NonLaHu/tiktok-integration/issues</a>.</p>
+
+  <p class="fine">Not affiliated with TikTok. TikTok is a trademark of its respective owner.</p>
+</main>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>TikTok Integration</title>
+  <style>
+    :root { color-scheme: light dark; --fg: #1c1f23; --muted: #5c6570; --bg: #ffffff; --line: #e6e8eb; --accent: #fe2c55; }
+    @media (prefers-color-scheme: dark) { :root { --fg: #f1f3f5; --muted: #a7b0ba; --bg: #111315; --line: #2a2e33; } }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--fg); font: 16px/1.65 system-ui, -apple-system, "Segoe UI", sans-serif; }
+    main { max-width: 760px; margin: 0 auto; padding: 64px 24px 96px; }
+    .eyebrow { color: var(--accent); font-weight: 650; letter-spacing: .08em; text-transform: uppercase; font-size: 12px; margin: 0 0 12px; }
+    h1 { font-size: clamp(34px, 6vw, 52px); line-height: 1.1; margin: 0 0 18px; letter-spacing: -0.02em; }
+    h2 { font-size: 20px; margin: 36px 0 10px; }
+    .lead { font-size: 19px; color: var(--muted); margin: 0 0 8px; }
+    ul { padding-left: 22px; }
+    li { margin: 6px 0; }
+    nav { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 40px; }
+    nav a { border: 1px solid var(--line); border-radius: 999px; padding: 10px 18px; color: var(--fg); text-decoration: none; font-weight: 600; }
+    nav a:hover { border-color: var(--accent); color: var(--accent); }
+    .fine { color: var(--muted); font-size: 13px; margin-top: 48px; padding-top: 20px; border-top: 1px solid var(--line); }
+    a { color: var(--accent); }
+  </style>
+</head>
+<body>
+<main>
+  <p class="eyebrow">Personal integration</p>
+  <h1>TikTok Integration</h1>
+  <p class="lead">A private tool that connects the owner's own TikTok account to local automation for reading profile and video data and uploading videos.</p>
+
+  <h2>What it does</h2>
+  <ul>
+    <li>Authorizes the owner's TikTok account with TikTok Login Kit (OAuth 2.0).</li>
+    <li>Reads the owner's basic profile and the list of videos on the owner's own account.</li>
+    <li>Uploads videos created by the owner to the owner's own TikTok account.</li>
+  </ul>
+
+  <h2>Who can use it</h2>
+  <p>This is not a public service and it is not offered to third parties. It is operated solely by the account owner, for the account owner's own TikTok account. No other users' data is accessed, collected, or shared.</p>
+
+  <nav>
+    <a href="terms.html">Terms of Service</a>
+    <a href="privacy.html">Privacy Policy</a>
+  </nav>
+
+  <p class="fine">Not affiliated with TikTok. TikTok is a trademark of its respective owner. Use of this integration is also subject to TikTok's Developer Terms of Service.</p>
+</main>
+</body>
+</html>
